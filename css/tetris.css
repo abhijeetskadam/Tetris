@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(234, 234, 234);
+}
+
+h1 {
+	text-align:center;
+}
+
+#tetris {
+	margin:2em auto;
+	width:26em;
+	overflow:hidden;
+}
+
+#grid td {
+	width:1.2em;
+	height:1.2em;
+}
