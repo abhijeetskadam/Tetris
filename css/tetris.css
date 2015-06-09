@@ -13,6 +13,14 @@ h1 {
 }
 
 #grid td {
-	width:1.2em;
+	width:1em;
 	height:1.2em;
+}
+
+td.boundry{
+    background-color:black;
+}
+
+td.shape{
+    background:radial-gradient(white, black);
 }

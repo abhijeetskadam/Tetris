@@ -60,7 +60,7 @@ var tetris = {
             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
 			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];
-        $('#grid td[id]').html('');
+        $('#grid td[id]').addClass("shape");
         $(tetris.bound).keypress(tetris.key);
         tetris.next = tetris.newShape();
         tetris.shift();
@@ -114,7 +114,7 @@ var tetris = {
         var i, j;
         for (i = 0; i < 20; ++i) {
             for (j = 0; j < 20; ++j) {
-                tetris.cells[i][j].html('');
+                tetris.cells[i][j].addClass("shape");
             }
         }
         alert('Game Over..!!');
@@ -221,7 +221,12 @@ var tetris = {
         for (i = 0; i < 4; ++i) {
             for (j = 0; j < 4; ++j) {
                 if (tetris.curShape[r][j][i]) {
-                    tetris.cells[y + j][x + i].html(c);
+                    if (c) {
+                        tetris.cells[y + j][x + i].addClass("shape");
+                    }
+                    else {
+                        tetris.cells[y + j][x + i].removeClass("shape");
+                    }                    
                 }
             }
         }
@@ -230,10 +235,10 @@ var tetris = {
     // Refresh the grid
     refresh: function () {
         // remove from the old position
-        tetris.draw(tetris.r0, tetris.x0, tetris.y0, '');
+        tetris.draw(tetris.r0, tetris.x0, tetris.y0, false);
 
         // draw to the next one
-        tetris.draw(tetris.r, tetris.x, tetris.y, '*');
+        tetris.draw(tetris.r, tetris.x, tetris.y, true);
 
         // reset coordinates
         tetris.x0 = tetris.x;
