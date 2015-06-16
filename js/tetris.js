@@ -65,6 +65,7 @@ var tetris = {
         tetris.next = tetris.newShape();
         tetris.shift();
         tetris.refresh();
+        setInterval(this.moveDown, 1000);
     },
 
     // Define the action to be fired depending on key entry
@@ -74,8 +75,8 @@ var tetris = {
             case 68: case 100: tetris.moveRight(); break; // d            
             case 83: case 115: tetris.rotateRight(); break; // s
             case 87: case 119: tetris.rotateLeft(); break; // w
-            //case 88: case 120: tetris.moveDown(); break; // x    
-            default: alert('Please enter valid move!'); break;
+            case 88: case 120: tetris.moveDown(); break; // x    
+            //default: alert('Please enter valid move!'); break;
         }
         return false;
     },
@@ -116,6 +117,7 @@ var tetris = {
             for (j = 0; j < 20; ++j) {
                 tetris.cells[i][j].addClass("shape");
             }
+            setTimeout(function () { }, 200);
         }
         alert('Game Over..!!');
         location.reload();
@@ -141,9 +143,9 @@ var tetris = {
             ++tetris.y;
             tetris.refresh();
         }
-        else {
-            tetris.moveDown();
-        }
+        //else {
+        //    tetris.moveDown();
+        //}
     },
 
     // Move the current shape to the right
@@ -153,9 +155,9 @@ var tetris = {
             ++tetris.y;
             tetris.refresh();
         }
-        else {
-            tetris.moveDown();
-        }
+        //else {
+        //    tetris.moveDown();
+        //}
     },
 
     // Rotate the current shape clockwise
@@ -167,9 +169,9 @@ var tetris = {
             ++tetris.y;
             tetris.refresh();
         }
-        else {
-            tetris.moveDown();
-        }
+        //else {
+        //    tetris.moveDown();
+        //}
     },
 
     // Rotate the current shape anticlockwise
@@ -181,9 +183,9 @@ var tetris = {
             ++tetris.y;
             tetris.refresh();
         }
-        else {
-            tetris.moveDown();
-        }
+        //else {
+        //    tetris.moveDown();
+        //}
     },
 
     // Move down the current shape
